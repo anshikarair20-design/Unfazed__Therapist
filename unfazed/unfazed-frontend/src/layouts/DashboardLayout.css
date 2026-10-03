@@ -1,0 +1,607 @@
+/* =========================================================
+   UNFAZED — CLINICAL CARE THEME
+   Warm premium therapy / hospital dashboard
+========================================================= */
+
+:root {
+    --cream-50: #fdfbf7;
+    --cream-100: #f7f4eb;
+    --cream-200: #efe9d9;
+    --cream-300: #e2d7c2;
+
+    --bronze-800: #3d3530;
+    --bronze-900: #2a2421;
+    --bronze-950: #1c1816;
+
+    --terracotta-500: #c86d51;
+    --terracotta-600: #b0593e;
+    --terracotta-700: #95462d;
+
+    --sage-500: #738a71;
+    --sage-600: #5d725b;
+    --sage-100: #ebf0ea;
+
+    --text: #2a2421;
+    --muted: #8b8177;
+
+    --border: #e2d7c2;
+
+    --shadow:
+        0 10px 30px rgba(42, 36, 33, 0.06);
+}
+
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+    margin: 0;
+    min-height: 100%;
+}
+
+body {
+    font-family:
+        "Plus Jakarta Sans",
+        "Segoe UI",
+        system-ui,
+        sans-serif;
+
+    background: var(--cream-100);
+    color: var(--text);
+}
+
+
+/* =========================================================
+   MAIN APPLICATION
+========================================================= */
+
+.clinical-app {
+    display: flex;
+
+    width: 100%;
+    min-height: 100vh;
+
+    background: var(--cream-100);
+}
+
+
+/* =========================================================
+   SIDEBAR
+========================================================= */
+
+.clinical-sidebar {
+    width: 270px;
+    min-width: 270px;
+
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    background: var(--bronze-950);
+    color: #efe9d9;
+
+    border-right: 1px solid var(--bronze-900);
+
+    box-shadow:
+        8px 0 30px rgba(28, 24, 22, 0.08);
+
+    position: sticky;
+    top: 0;
+
+    z-index: 20;
+}
+
+
+/* =========================================================
+   BRAND
+========================================================= */
+
+.brand-header {
+    height: 88px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 13px;
+
+    padding: 0 25px;
+
+    border-bottom: 1px solid var(--bronze-900);
+}
+
+.brand-logo {
+    width: 44px;
+    height: 44px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 13px;
+
+    background: var(--terracotta-500);
+
+    color: white;
+
+    font-family: Georgia, serif;
+
+    font-size: 21px;
+    font-weight: 700;
+
+    box-shadow:
+        inset 0 1px 1px rgba(255, 255, 255, 0.15);
+}
+
+.brand-name {
+    color: white;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 18px;
+    font-weight: 600;
+
+    letter-spacing: 0.2px;
+}
+
+.brand-subtitle {
+    margin-top: 4px;
+
+    color: rgba(226, 215, 194, 0.55);
+
+    font-size: 10px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1.7px;
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+.clinical-nav {
+    flex: 1;
+
+    padding: 27px 15px;
+
+    overflow-y: auto;
+}
+
+.nav-heading {
+    padding: 0 13px;
+
+    margin-bottom: 12px;
+
+    color: rgba(226, 215, 194, 0.42);
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.7px;
+
+    text-transform: uppercase;
+}
+
+
+.clinical-nav-item {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 11px 13px;
+
+    margin-bottom: 4px;
+
+    border-radius: 12px;
+
+    text-decoration: none;
+
+    color: rgba(239, 233, 217, 0.72);
+
+    font-size: 13px;
+
+    font-weight: 500;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.clinical-nav-item:hover {
+    background: var(--bronze-900);
+
+    color: white;
+
+    transform: translateX(2px);
+}
+
+.clinical-nav-item.active {
+    background: var(--terracotta-500);
+
+    color: white;
+
+    font-weight: 600;
+
+    box-shadow:
+        0 5px 15px rgba(200, 109, 81, 0.18);
+}
+
+.nav-icon {
+    width: 20px;
+
+    text-align: center;
+
+    color: #9db09a;
+
+    font-size: 13px;
+}
+
+.clinical-nav-item.active .nav-icon {
+    color: white;
+}
+
+
+/* =========================================================
+   PROFILE
+========================================================= */
+
+.therapist-profile {
+    margin: 12px;
+
+    padding: 13px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    border-radius: 16px;
+
+    background: rgba(61, 53, 48, 0.55);
+
+    border: 1px solid var(--bronze-900);
+}
+
+.profile-avatar {
+    width: 38px;
+    height: 38px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 11px;
+
+    background: var(--terracotta-500);
+
+    color: white;
+
+    font-family: Georgia, serif;
+
+    font-weight: 700;
+}
+
+.profile-info {
+    min-width: 0;
+
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 2px;
+}
+
+.profile-info strong {
+    color: white;
+
+    font-size: 12px;
+}
+
+.profile-info span {
+    color: rgba(226, 215, 194, 0.55);
+
+    font-size: 10px;
+}
+
+.settings-button {
+    border: 0;
+
+    background: transparent;
+
+    color: rgba(226, 215, 194, 0.6);
+
+    cursor: pointer;
+
+    font-size: 14px;
+}
+
+.settings-button:hover {
+    color: white;
+}
+
+
+/* =========================================================
+   LOGOUT
+========================================================= */
+
+.logout-button {
+    margin: 0 12px 18px;
+
+    padding: 11px 13px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    border: 0;
+
+    border-radius: 12px;
+
+    background: transparent;
+
+    color: rgba(226, 215, 194, 0.7);
+
+    font-family: inherit;
+
+    font-size: 13px;
+
+    cursor: pointer;
+
+    text-align: left;
+
+    transition: all 0.2s ease;
+}
+
+.logout-button:hover {
+    background: var(--bronze-900);
+
+    color: white;
+}
+
+
+/* =========================================================
+   MAIN AREA
+========================================================= */
+
+.clinical-main {
+    flex: 1;
+
+    min-width: 0;
+
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    background: var(--cream-50);
+}
+
+
+/* =========================================================
+   TOP HEADER
+========================================================= */
+
+.clinical-header {
+    height: 80px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 38px;
+
+    background: var(--cream-50);
+
+    border-bottom: 1px solid var(--cream-200);
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 10;
+}
+
+.breadcrumb {
+    display: flex;
+    align-items: center;
+
+    gap: 11px;
+
+    font-size: 13px;
+
+    color: var(--muted);
+}
+
+.portal-name {
+    color: var(--bronze-900);
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 17px;
+
+    font-style: italic;
+}
+
+.breadcrumb-divider {
+    color: var(--cream-300);
+
+    font-size: 18px;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+.practice-status {
+    display: flex;
+    align-items: center;
+
+    gap: 7px;
+
+    color: var(--sage-600);
+
+    font-size: 12px;
+
+    font-weight: 500;
+}
+
+.status-dot {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: #78a68a;
+
+    box-shadow:
+        0 0 0 4px rgba(120, 166, 138, 0.12);
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.clinical-content {
+    flex: 1;
+
+    overflow-y: auto;
+
+    padding: 34px 38px 55px;
+
+    background:
+        linear-gradient(180deg,
+            #f7f4eb 0%,
+            #f4f1e9 100%);
+}
+
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--cream-300);
+
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--terracotta-500);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .clinical-sidebar {
+        width: 225px;
+        min-width: 225px;
+    }
+
+    .clinical-header {
+        padding: 0 25px;
+    }
+
+    .clinical-content {
+        padding: 28px 25px 45px;
+    }
+}
+
+
+@media (max-width: 700px) {
+
+    .clinical-sidebar {
+        width: 72px;
+        min-width: 72px;
+    }
+
+    .brand-header {
+        justify-content: center;
+
+        padding: 0;
+    }
+
+    .brand-header>div:last-child,
+    .nav-heading,
+    .clinical-nav-item span:last-child,
+    .profile-info,
+    .settings-button {
+        display: none;
+    }
+
+    .clinical-nav {
+        padding: 20px 9px;
+    }
+
+    .clinical-nav-item {
+        justify-content: center;
+
+        padding: 12px 8px;
+    }
+
+    .nav-icon {
+        width: auto;
+    }
+
+    .therapist-profile {
+        justify-content: center;
+
+        padding: 9px;
+    }
+
+    .logout-button {
+        justify-content: center;
+
+        padding: 12px 8px;
+    }
+
+    .logout-button span:last-child {
+        display: none;
+    }
+
+    .clinical-header {
+        height: 70px;
+
+        padding: 0 18px;
+    }
+
+    .clinical-content {
+        padding: 24px 18px 40px;
+    }
+}

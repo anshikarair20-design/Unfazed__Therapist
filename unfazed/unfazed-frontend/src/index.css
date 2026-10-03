@@ -1,0 +1,319 @@
+:root {
+  --navy: #102536;
+  --navy-light: #18384d;
+
+  --teal: #2f9c95;
+  --teal-dark: #247c77;
+  --teal-soft: #dff1ef;
+
+  --bg: #edf4f3;
+  --surface: #f7fbfa;
+  --surface-dark: #e8f0ef;
+
+  --border: #cbdedb;
+  --border-dark: #b5cfcc;
+
+  --text: #173042;
+  --text-soft: #607987;
+  --muted: #78909c;
+
+  --danger: #c95c5c;
+
+  --shadow:
+    0 8px 24px rgba(16, 37, 54, 0.07);
+
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  color: var(--text);
+  background: var(--bg);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* --------------------------------
+   GLOBAL
+-------------------------------- */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+/* --------------------------------
+   HEADINGS
+-------------------------------- */
+
+h1,
+h2,
+h3,
+h4 {
+  color: var(--navy);
+  font-weight: 650;
+}
+
+h1 {
+  font-size: 36px;
+  letter-spacing: -0.8px;
+}
+
+h2 {
+  font-size: 25px;
+}
+
+h3 {
+  font-size: 20px;
+}
+
+/* --------------------------------
+   PAGE BACKGROUND
+-------------------------------- */
+
+main {
+  background: var(--bg);
+}
+
+/* --------------------------------
+   CARDS / TILES
+-------------------------------- */
+
+/*
+   This catches the cards you already
+   created with inline border styles.
+*/
+
+div[style*="border"] {
+  border: 1px solid var(--border) !important;
+  background: var(--surface) !important;
+  box-shadow: var(--shadow);
+  border-radius: 14px !important;
+}
+
+/* --------------------------------
+   FORM CONTAINERS
+-------------------------------- */
+
+form {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 28px;
+  box-shadow: var(--shadow);
+}
+
+/* --------------------------------
+   LABELS
+-------------------------------- */
+
+label {
+  color: var(--navy);
+  font-weight: 600;
+  font-size: 14px;
+}
+
+/* --------------------------------
+   INPUTS
+-------------------------------- */
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 12px 14px;
+
+  background: #eef6f5;
+
+  color: var(--text);
+
+  border: 1px solid var(--border-dark);
+  border-radius: 9px;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  background: #f8fcfb;
+
+  border-color: var(--teal);
+
+  box-shadow:
+    0 0 0 3px rgba(47, 156, 149, 0.14);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #91a5ad;
+}
+
+/* --------------------------------
+   BUTTONS
+-------------------------------- */
+
+button {
+  border: 1px solid var(--teal-dark);
+
+  background: var(--teal);
+  color: white;
+
+  padding: 10px 18px;
+
+  border-radius: 8px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.15s ease,
+    box-shadow 0.2s ease;
+}
+
+button:hover {
+  background: var(--teal-dark);
+
+  box-shadow:
+    0 5px 14px rgba(47, 156, 149, 0.2);
+
+  transform: translateY(-1px);
+}
+
+button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* --------------------------------
+   LINKS
+-------------------------------- */
+
+a {
+  color: var(--teal-dark);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--navy);
+}
+
+/* --------------------------------
+   HR
+-------------------------------- */
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--border);
+  margin: 28px 0;
+}
+
+/* --------------------------------
+   TABLES
+-------------------------------- */
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+
+  background: var(--surface);
+
+  border: 1px solid var(--border);
+  border-radius: 12px;
+
+  overflow: hidden;
+}
+
+th {
+  background: var(--navy);
+  color: white;
+
+  padding: 14px;
+
+  text-align: left;
+  font-size: 14px;
+}
+
+td {
+  padding: 14px;
+
+  border-top: 1px solid var(--border);
+
+  color: var(--text);
+}
+
+tr:hover td {
+  background: #edf7f5;
+}
+
+/* --------------------------------
+   STATUS BADGES
+-------------------------------- */
+
+.status,
+.badge {
+  display: inline-block;
+
+  padding: 5px 10px;
+
+  border-radius: 20px;
+
+  background: var(--teal-soft);
+  color: var(--teal-dark);
+
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* --------------------------------
+   SCROLLBAR
+-------------------------------- */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #e3edeb;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #a9c5c1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #7fa9a4;
+}
