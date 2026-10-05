@@ -22,24 +22,22 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 
 function App() {
-  const token = localStorage.getItem("token");
-
   return (
     <BrowserRouter>
       <Routes>
 
-        {/* Root */}
+        {/* Open dashboard directly */}
         <Route
           path="/"
           element={
             <Navigate
-              to={token ? "/dashboard" : "/login"}
+              to="/dashboard"
               replace
             />
           }
         />
 
-        {/* Authentication */}
+        {/* Login / Signup */}
         <Route
           path="/login"
           element={<Login />}
@@ -50,7 +48,7 @@ function App() {
           element={<Signup />}
         />
 
-        {/* Dashboard */}
+        {/* Main Dashboard */}
         <Route
           path="/dashboard"
           element={<DashboardLayout />}
