@@ -1,7 +1,10 @@
 import { useState } from "react";
 import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
 
 function Login() {
+    const navigate = useNavigate();
+
     const [formData, setFormData] = useState({
         email: "",
         password: ""
@@ -25,11 +28,12 @@ function Login() {
                 formData
             );
 
-            setMessage(response.data.message);
-
             localStorage.setItem("token", response.data.token);
 
-            console.log("Token received:", !!response.data.token);
+            setMessage("Login successful!");
+
+            navigate("/dashboard");
+
         } catch (error) {
             setMessage(
                 error.response?.data?.message || "Login failed"
@@ -70,6 +74,13 @@ function Login() {
             </form>
 
             {message && <p>{message}</p>}
+
+            <p>
+                Don't have an account?{" "}
+                <Link to="/signup">
+                    Create an account
+                </Link>
+            </p>
         </div>
     );
 }
