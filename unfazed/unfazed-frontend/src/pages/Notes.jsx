@@ -19,7 +19,7 @@ function Notes() {
     const loadNotes = async () => {
         try {
             const response = await fetch(
-                "http://localhost:5000/api/notes",
+                "https://unfazed-backend-xnph.onrender.com/api/notes",
                 {
                     headers: {
                         Authorization: `Bearer ${token}`
@@ -73,7 +73,7 @@ function Notes() {
 
         try {
             const response = await fetch(
-                "http://localhost:5000/api/notes",
+                "https://unfazed-backend-xnph.onrender.com/api/notes",
                 {
                     method: "POST",
 

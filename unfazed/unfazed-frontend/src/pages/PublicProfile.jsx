@@ -12,7 +12,7 @@ function PublicProfile() {
         const getPublicProfile = async () => {
             try {
                 const response = await axios.get(
-                    `http://localhost:5000/api/therapists/${slug}`
+                    `https://unfazed-backend-xnph.onrender.com/api/therapists/${slug}`
                 );
 
                 setTherapist(response.data.therapist);

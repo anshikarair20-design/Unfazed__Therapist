@@ -10,7 +10,7 @@ function Clients() {
     const token = localStorage.getItem("token");
 
     useEffect(() => {
-        fetch("http://localhost:5000/api/clients", {
+        fetch("https://unfazed-backend-xnph.onrender.com/api/clients", {
             headers: {
                 Authorization: `Bearer ${token}`,
             },

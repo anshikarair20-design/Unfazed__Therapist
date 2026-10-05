@@ -21,7 +21,7 @@ function Login() {
 
         try {
             const response = await axios.post(
-                "http://localhost:5000/api/therapists/login",
+                "https://unfazed-backend-xnph.onrender.com/api/therapists/login",
                 formData
             );
 

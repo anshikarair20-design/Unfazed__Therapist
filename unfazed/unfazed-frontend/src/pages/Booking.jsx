@@ -37,7 +37,7 @@ function Booking() {
             }
 
             const response = await axios.post(
-                "http://localhost:5000/api/bookings",
+                "https://unfazed-backend-xnph.onrender.com/api/bookings",
                 {
                     ...formData,
                     duration: Number(formData.duration)

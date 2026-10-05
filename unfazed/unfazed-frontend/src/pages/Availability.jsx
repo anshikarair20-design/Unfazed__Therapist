@@ -23,7 +23,7 @@ function Availability() {
             const token = localStorage.getItem("token");
 
             const response = await fetch(
-                "http://localhost:5000/api/availability",
+                "https://unfazed-backend-xnph.onrender.com/api/availability",
                 {
                     method: "POST",
                     headers: {

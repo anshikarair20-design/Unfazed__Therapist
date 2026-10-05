@@ -10,7 +10,7 @@ function Analytics() {
             const token = localStorage.getItem("token");
 
             const response = await fetch(
-                "http://localhost:5000/api/analytics",
+                "https://unfazed-backend-xnph.onrender.com/api/analytics",
                 {
                     headers: {
                         Authorization: `Bearer ${token}`

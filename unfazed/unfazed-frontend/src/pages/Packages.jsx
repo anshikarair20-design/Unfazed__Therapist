@@ -25,7 +25,7 @@ function Packages() {
     const loadPackages = async () => {
         try {
             const response = await fetch(
-                "http://localhost:5000/api/packages",
+                "https://unfazed-backend-xnph.onrender.com/api/packages",
                 {
                     headers: {
                         Authorization: `Bearer ${token}`
@@ -69,7 +69,7 @@ function Packages() {
 
         try {
             const response = await fetch(
-                "http://localhost:5000/api/packages",
+                "https://unfazed-backend-xnph.onrender.com/api/packages",
                 {
                     method: "POST",
 
@@ -138,7 +138,7 @@ function Packages() {
     const verifyPayment = async (response) => {
         try {
             const verifyResponse = await fetch(
-                "http://localhost:5000/api/payments/verify",
+                "https://unfazed-backend-xnph.onrender.com/api/payments/verify",
                 {
                     method: "POST",
 
@@ -216,7 +216,7 @@ function Packages() {
 
             // CREATE ORDER
             const response = await fetch(
-                "http://localhost:5000/api/payments/order",
+                "https://unfazed-backend-xnph.onrender.com/api/payments/order",
                 {
                     method: "POST",
 

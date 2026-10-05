@@ -24,7 +24,7 @@ function Signup() {
 
         try {
             const response = await axios.post(
-                "http://localhost:5000/api/therapists/signup",
+                "https://unfazed-backend-xnph.onrender.com/api/therapists/signup",
                 formData
             );
 

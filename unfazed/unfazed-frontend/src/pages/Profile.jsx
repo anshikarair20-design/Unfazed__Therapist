@@ -11,7 +11,7 @@ function Profile() {
                 const token = localStorage.getItem("token");
 
                 const response = await axios.get(
-                    "http://localhost:5000/api/therapists/profile",
+                    "https://unfazed-backend-xnph.onrender.com/api/therapists/profile",
                     {
                         headers: {
                             Authorization: `Bearer ${token}`
