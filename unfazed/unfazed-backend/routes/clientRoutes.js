@@ -8,23 +8,16 @@ const {
     giveConsent
 } = require("../controllers/clientController");
 
-const authMiddleware = require("../middleware/authMiddleware");
-
 const router = express.Router();
 
-// Create client
-router.post("/", authMiddleware, createClient);
+router.post("/", createClient);
 
-// Get all clients
-router.get("/", authMiddleware, getClients);
+router.get("/", getClients);
 
-// Get single client
-router.get("/:id", authMiddleware, getClient);
+router.get("/:id", getClient);
 
-// Save intake information
-router.put("/:id/intake", authMiddleware, updateIntake);
+router.put("/:id/intake", updateIntake);
 
-// Give consent
-router.put("/:id/consent", authMiddleware, giveConsent);
+router.put("/:id/consent", giveConsent);
 
 module.exports = router;

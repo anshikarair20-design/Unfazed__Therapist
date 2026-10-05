@@ -6,19 +6,6 @@ const {
 
 const createClient = async (req, res) => {
     try {
-        // Check subscription entitlement
-        const allowed = await canAccess(
-            req.therapist.id,
-            "maxClients"
-        );
-
-        if (!allowed) {
-            return res.status(403).json({
-                message:
-                    "Client limit reached for your subscription tier. Please upgrade your plan."
-            });
-        }
-
         const {
             name,
             email,
@@ -33,7 +20,6 @@ const createClient = async (req, res) => {
         }
 
         const existingClient = await Client.findOne({
-            therapist: req.therapist.id,
             email
         });
 
@@ -44,7 +30,6 @@ const createClient = async (req, res) => {
         }
 
         const client = await Client.create({
-            therapist: req.therapist.id,
             name,
             email,
             phone,
@@ -68,9 +53,8 @@ const createClient = async (req, res) => {
 
 const getClients = async (req, res) => {
     try {
-        const clients = await Client.find({
-            therapist: req.therapist.id
-        }).select("-__v");
+        const clients = await Client.find({})
+            .select("-__v");
 
         res.json({
             clients
@@ -89,8 +73,7 @@ const getClients = async (req, res) => {
 const getClient = async (req, res) => {
     try {
         const client = await Client.findOne({
-            _id: req.params.id,
-            therapist: req.therapist.id
+            _id: req.params.id
         }).select("-__v");
 
         if (!client) {
@@ -124,8 +107,7 @@ const updateIntake = async (req, res) => {
         } = req.body;
 
         const client = await Client.findOne({
-            _id: req.params.id,
-            therapist: req.therapist.id
+            _id: req.params.id
         });
 
         if (!client) {
@@ -162,8 +144,7 @@ const updateIntake = async (req, res) => {
 const giveConsent = async (req, res) => {
     try {
         const client = await Client.findOne({
-            _id: req.params.id,
-            therapist: req.therapist.id
+            _id: req.params.id
         });
 
         if (!client) {
