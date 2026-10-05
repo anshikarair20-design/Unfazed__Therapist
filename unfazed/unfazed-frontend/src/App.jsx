@@ -18,37 +18,48 @@ import Analytics from "./pages/Analytics";
 import Packages from "./pages/Packages";
 import Payments from "./pages/Payments";
 
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+
 function App() {
+  const token = localStorage.getItem("token");
 
   return (
     <BrowserRouter>
-
       <Routes>
 
-        {/* FRONT PAGE */}
+        {/* Root */}
         <Route
           path="/"
           element={
             <Navigate
-              to="/dashboard"
+              to={token ? "/dashboard" : "/login"}
               replace
             />
           }
         />
 
-        {/* DASHBOARD */}
+        {/* Authentication */}
+        <Route
+          path="/login"
+          element={<Login />}
+        />
+
+        <Route
+          path="/signup"
+          element={<Signup />}
+        />
+
+        {/* Dashboard */}
         <Route
           path="/dashboard"
           element={<DashboardLayout />}
         >
-
-          {/* Overview */}
           <Route
             index
             element={<Dashboard />}
           />
 
-          {/* Clients */}
           <Route
             path="clients"
             element={<Clients />}
@@ -59,7 +70,6 @@ function App() {
             element={<ClientProfile />}
           />
 
-          {/* Scheduling */}
           <Route
             path="availability"
             element={<Availability />}
@@ -70,7 +80,6 @@ function App() {
             element={<Booking />}
           />
 
-          {/* Payments */}
           <Route
             path="payments"
             element={<Payments />}
@@ -81,27 +90,23 @@ function App() {
             element={<Packages />}
           />
 
-          {/* Clinical */}
           <Route
             path="notes"
             element={<Notes />}
           />
 
-          {/* Communication */}
           <Route
             path="chat"
             element={<Chat />}
           />
 
-          {/* Analytics */}
           <Route
             path="analytics"
             element={<Analytics />}
           />
-
         </Route>
 
-        {/* OLD URLS → DASHBOARD */}
+        {/* Redirect old routes */}
         <Route
           path="/clients"
           element={
@@ -173,7 +178,6 @@ function App() {
         />
 
       </Routes>
-
     </BrowserRouter>
   );
 }
